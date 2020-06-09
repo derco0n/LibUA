@@ -1,0 +1,8 @@
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\bin\Debug\TestClient.exe
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\bin\Debug\TestClient.pdb
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\bin\Debug\LibUA.dll
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\bin\Debug\LibUA.pdb
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\obj\Debug\TestClient.csprojAssemblyReference.cache
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\obj\Debug\TestClient.csproj.CopyComplete
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\obj\Debug\TestClient.exe
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestClient\obj\Debug\TestClient.pdb

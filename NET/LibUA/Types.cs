@@ -13,6 +13,7 @@ namespace LibUA
 	{
 		public static class Types
 		{
+            
 			public static bool StatusCodeIsGood(uint code) { return (code & 0xC0000000) == 0; }
 			public static bool StatusCodeIsUncertain(uint code) { return (code & 0x40000000) != 0; }
 			public static bool StatusCodeIsBad(uint code) { return (code & 0x80000000) != 0; }
@@ -30,8 +31,8 @@ namespace LibUA
 			public const string SignatureAlgorithmSha1 = "http://www.w3.org/2000/09/xmldsig#rsa-sha1";
 			public const string SignatureAlgorithmSha256 = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
 			public const string SignatureAlgorithmRsa15 = "http://www.w3.org/2001/04/xmlenc#rsa-1_5";
-
-			public const string IdentityTokenAnonymous = "anonymous";
+            public const int    TCPPortDefault = 4840;
+            public const string IdentityTokenAnonymous = "anonymous";
 		}
 
 		public enum MessageType : uint

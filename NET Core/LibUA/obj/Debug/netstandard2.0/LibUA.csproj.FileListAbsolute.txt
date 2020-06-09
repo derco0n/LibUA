@@ -1,0 +1,8 @@
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\bin\Debug\netstandard2.0\LibUA.deps.json
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\bin\Debug\netstandard2.0\LibUA.dll
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\bin\Debug\netstandard2.0\LibUA.pdb
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\obj\Debug\netstandard2.0\LibUA.csprojAssemblyReference.cache
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\obj\Debug\netstandard2.0\LibUA.AssemblyInfoInputs.cache
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\obj\Debug\netstandard2.0\LibUA.AssemblyInfo.cs
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\obj\Debug\netstandard2.0\LibUA.dll
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET Core\LibUA\obj\Debug\netstandard2.0\LibUA.pdb

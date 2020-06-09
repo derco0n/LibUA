@@ -1,0 +1,8 @@
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\bin\Debug\TestServer.exe
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\bin\Debug\TestServer.pdb
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\bin\Debug\LibUA.dll
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\bin\Debug\LibUA.pdb
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\obj\Debug\TestServer.csprojAssemblyReference.cache
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\obj\Debug\TestServer.csproj.CopyComplete
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\obj\Debug\TestServer.exe
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\TestServer\obj\Debug\TestServer.pdb

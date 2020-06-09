@@ -109,8 +109,8 @@ namespace TestClient
 			ApplicationDescription[] appDescs = null;
 			EndpointDescription[] endpointDescs = null;
 
-			//var client = new DemoClient("192.168.1.7", 7718, 10);
-			var client = new DemoClient("127.0.0.1", 7718, 1000);
+			//var client = new DemoClient("192.168.1.7", Types.TCPPortDefault, 10);
+			var client = new DemoClient("127.0.0.1", Types.TCPPortDefault, 1000);
 			client.Connect();
 			client.OpenSecureChannel(MessageSecurityMode.None, SecurityPolicy.None, null);
 			client.FindServers(out appDescs, new[] { "en" });
@@ -129,7 +129,7 @@ namespace TestClient
 				.PolicyId;
 
 			// Create new client object to reset previous secure channel settings
-			client = new DemoClient("127.0.0.1", 7718, 1000);
+			client = new DemoClient("127.0.0.1", Types.TCPPortDefault, 1000);
 			var connectRes = client.Connect();
 			client.OpenSecureChannel(MessageSecurityMode.SignAndEncrypt, SecurityPolicy.Basic256Sha256, serverCert);
 			//var openRes = client.OpenSecureChannel(MessageSecurityMode.None, SecurityPolicy.None, null);

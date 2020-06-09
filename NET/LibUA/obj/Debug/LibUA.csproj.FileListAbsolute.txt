@@ -1,0 +1,5 @@
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET\LibUA\bin\Debug\LibUA.dll
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET\LibUA\bin\Debug\LibUA.pdb
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET\LibUA\obj\Debug\LibUA.dll
+C:\Users\dmarx\Source\Repos\derco0n\LibUA\NET\LibUA\obj\Debug\LibUA.pdb
+C:\Users\dmarx\source\repos\derco0n\LibUA\NET\LibUA\obj\Debug\LibUA.csprojAssemblyReference.cache
