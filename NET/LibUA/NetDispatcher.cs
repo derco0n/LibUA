@@ -1657,10 +1657,20 @@ namespace LibUA
 				else
 				{
 					var appCertStr = app.ApplicationCertificate.Export(X509ContentType.Cert);
-					var clientCertThumbprint = UASecurity.SHACalculate(config.RemoteCertificate.Export(X509ContentType.Cert), SecurityPolicy.Basic128Rsa15);
 
-					// SenderCertificate
-					succeeded &= respBuf.EncodeUAByteString(appCertStr);
+					var clientCertThumbprint = UASecurity.SHACalculate(config.RemoteCertificate.Export(X509ContentType.Cert), SecurityPolicy.Basic128Rsa15);
+                    if (clientCertThumbprint == new byte[0])
+                    {
+                        //hash not calculated properly. Abort
+                        if (logger != null)
+                        {
+                            logger.Log(LogLevel.Error, string.Format("{0}: Error while calculating clientCertThumbprint.", LoggerID()));
+                        }
+                        return -1; //Todo: check if this is the correct return code
+                    }
+
+                    // SenderCertificate
+                    succeeded &= respBuf.EncodeUAByteString(appCertStr);
 					// RecieverCertificateThumbprint
 					succeeded &= respBuf.EncodeUAByteString(clientCertThumbprint);
 				}

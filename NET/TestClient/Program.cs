@@ -109,26 +109,28 @@ namespace TestClient
 			ApplicationDescription[] appDescs = null;
 			EndpointDescription[] endpointDescs = null;
 
-			//var client = new DemoClient("192.168.1.7", Types.TCPPortDefault, 10);
+            //Initial connect to server to get application descriptionn and certificates
 			var client = new DemoClient("127.0.0.1", Types.TCPPortDefault, 1000);
 			client.Connect();
-			client.OpenSecureChannel(MessageSecurityMode.None, SecurityPolicy.None, null);
-			client.FindServers(out appDescs, new[] { "en" });
-			client.GetEndpoints(out endpointDescs, new[] { "en" });
-			client.Disconnect();
+            client.OpenSecureChannel(MessageSecurityMode.None, SecurityPolicy.None, null);  //This sets up the security channel to be used (none)            
+            client.FindServers(out appDescs, new[] { "en" }); //Get Application description from server
+			client.GetEndpoints(out endpointDescs, new[] { "en" }); //get enpoint-description (including) certificates from server
+			client.Disconnect(); //Disconnect again.
+
+            //Enumerate the information we got so var.
 
 			// Check matching message security mode and security policy too
 			// Lazy way to find server certificate is just grab any endpoint with one
 			byte[] serverCert = endpointDescs
 				.First(e => e.ServerCertificate != null && e.ServerCertificate.Length > 0)
-				.ServerCertificate;
+				.ServerCertificate; //Gets the severs certificate
 
 			var usernamePolicyDesc = endpointDescs
 				.First(e => e.UserIdentityTokens.Any(t => t.TokenType == UserTokenType.UserName))
 				.UserIdentityTokens.First(t => t.TokenType == UserTokenType.UserName)
-				.PolicyId;
+				.PolicyId;  //gets the servers identity
 
-			// Create new client object to reset previous secure channel settings
+			// Create new client object to reset previous secure channel settings. In fact. reconnecting ...
 			client = new DemoClient("127.0.0.1", Types.TCPPortDefault, 1000);
 			var connectRes = client.Connect();
 			client.OpenSecureChannel(MessageSecurityMode.SignAndEncrypt, SecurityPolicy.Basic256Sha256, serverCert);

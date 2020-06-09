@@ -113,7 +113,7 @@ namespace LibUA
 
 			if (pad < 0)
 			{
-				throw new Exception();
+				throw new Exception("Padding size to low. Dis you supplied a valid certificate?");
 			}
 
 			return pad;
@@ -609,13 +609,24 @@ namespace LibUA
 
 		public static int GetPlainBlockSize(X509Certificate2 cert, bool useOaep)
 		{
-			var rsa = cert.PublicKey.Key as RSACryptoServiceProvider;
-			if (rsa == null)
-			{
-				throw new Exception("Could not create RSACryptoServiceProvider");
-			}
-
-			return (rsa.KeySize / 8) - (useOaep ? RsaPkcs1OaepPaddingSize : RsaPkcs1PaddingSize);
+            /*if (cert == null || cert.PublicKey.Key == null)
+            {
+                throw new Exception("Could not create RSACryptoServiceProvider as cert or public key is not set.");
+            }*/
+            try
+            {
+                var rsa = cert.PublicKey.Key as RSACryptoServiceProvider;
+                if (rsa == null)
+                {
+                    throw new Exception("Could not create RSACryptoServiceProvider");
+                }
+                return (rsa.KeySize / 8) - (useOaep ? RsaPkcs1OaepPaddingSize : RsaPkcs1PaddingSize);
+            }
+            catch (Exception ex)
+            {
+                //throw new Exception("Could not create RSACryptoServiceProvider => "+ex.ToString());                
+                return -1;
+            }			
 		}
 
 		public static int GetCipherTextBlockSize(X509Certificate2 cert, bool useOaep)
@@ -740,9 +751,15 @@ namespace LibUA
 
 		public static byte[] SHACalculate(byte[] data, SecurityPolicy policy)
 		{
-			using (var sha = HashAlgorithmForSecurityPolicy(policy))
-			{
-				return sha.ComputeHash(data);
+            using (var sha = HashAlgorithmForSecurityPolicy(policy))
+            {
+                if (data != null) {  //Data must be something to calculate a hash
+                return sha.ComputeHash(data);
+                }
+                else
+                {                    
+                    return new byte[0];  //Return an empty-byte. to be checked
+                }
 			}
 		}
 

@@ -11,6 +11,9 @@ namespace LibUA
 {
 	namespace Core
 	{
+        /// <summary>
+        /// This defines several Types of Messages etc.
+        /// </summary>
 		public static class Types
 		{
             
@@ -395,7 +398,7 @@ namespace LibUA
 		}
 
 		public enum UAConst : uint
-		{
+		{ 
 			Boolean = 1,
 			SByte = 2,
 			Byte = 3,

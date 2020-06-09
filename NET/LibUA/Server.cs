@@ -14,6 +14,9 @@ namespace LibUA
 {
 	namespace Server
 	{
+        /// <summary>
+        /// Describes a master-object which acts as a SERVER using UA-binarymode (over TCP)
+        /// </summary>
 		public class Master
 		{
 			public readonly Application App = null;

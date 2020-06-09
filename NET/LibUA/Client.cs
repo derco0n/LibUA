@@ -95,7 +95,21 @@ namespace LibUA
 
 		public StatusCode OpenSecureChannel(MessageSecurityMode messageSecurityMode, SecurityPolicy securityPolicy, byte[] serverCert)
 		{
-			config.SecurityPolicy = securityPolicy;
+            /*
+            if (serverCert == null)
+            {
+                return StatusCode.BadCertificateInvalid;
+            }
+            else if (messageSecurityMode == MessageSecurityMode.Invalid)
+            {
+                return StatusCode.BadSecureChannelIdInvalid;
+            }
+            else if (securityPolicy == SecurityPolicy.Invalid)
+            {
+                return StatusCode.BadSecureChannelIdInvalid;
+            }*/
+
+            config.SecurityPolicy = securityPolicy;
 			config.MessageSecurityMode = messageSecurityMode;
 			config.RemoteCertificateString = serverCert;
 
@@ -160,6 +174,11 @@ namespace LibUA
 				{
 					var certStr = ApplicationCertificate.Export(X509ContentType.Cert);
 					var serverCertThumbprint = UASecurity.SHACalculate(config.RemoteCertificateString, SecurityPolicy.Basic128Rsa15);
+                    if (serverCertThumbprint == new byte[0])
+                    {
+                        //hash not calculated properly. Abort                        
+                        return LibUA.Core.StatusCode.BadIdentityTokenInvalid; //Todo: check if this is the correct return code
+                    }
 
 					succeeded &= sendBuf.EncodeUAByteString(certStr);
 					succeeded &= sendBuf.EncodeUAByteString(serverCertThumbprint);
